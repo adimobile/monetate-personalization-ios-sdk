@@ -12,7 +12,7 @@ public class Personalization {
         
     //class members
     public var account: Account
-    private var user: User
+    public var user: User
     public var timer: ScheduleTimer?
     
     private let eventQueueManager = EventQueueManager()
@@ -97,7 +97,7 @@ public class Personalization {
         _=callMonetateAPI()
     }
     
-    public func setCustomerId (customerId: String) {
+    public func setCustomerId (customerId: String?) {
         self.user.setCustomerId(customerId: customerId)
     }
     

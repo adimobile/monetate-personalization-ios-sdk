@@ -23,7 +23,13 @@ final class EventQueueManager {
     // Add optional completion callback called once update is done
     func updateQueue(_ newQueue: [ContextEnum: MEvent], completion: (() -> Void)? = nil) {
         serialSyncQueue.async {
-            self.queue = newQueue
+            if newQueue.isEmpty {
+                self.queue = newQueue
+            } else {
+                newQueue.forEach {
+                    self.queue[$0] = $1
+                }
+            }
             completion?()
         }
     }

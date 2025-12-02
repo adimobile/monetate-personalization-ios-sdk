@@ -43,7 +43,7 @@ public class User :Codable {
         if (monetateId == nil && deviceId == nil) {throw UserIdError.UserID(description: "monetateId or deviceId, anyone is required")}
     }
     
-    public func setCustomerId (customerId: String) {
+    public func setCustomerId (customerId: String?) {
         self.customerId = customerId
     }
 }
