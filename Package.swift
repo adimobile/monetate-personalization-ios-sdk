@@ -17,7 +17,8 @@ let package = Package(
     targets: [
         .target(
             name: "Monetate",
-            path: "monetate"
+            path: "Sources/monetate",
+            resources: [.process("Resources/Version.plist")]
         )
     ],
     swiftLanguageModes: [

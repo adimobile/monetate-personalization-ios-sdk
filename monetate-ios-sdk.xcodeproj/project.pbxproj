@@ -66,10 +66,12 @@
 		228CF1822125CEE100D3E188 /* Monetate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 228CF1812125CEE100D3E188 /* Monetate.plist */; };
 		22E0FACD210B68D3002E6B93 /* Monetate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E0FAC3210B68D3002E6B93 /* Monetate.framework */; };
 		22E0FAD4210B68D3002E6B93 /* monetate_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E0FAC6210B68D3002E6B93 /* monetate_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E398F4C2EE93A9400964A2B /* RequestBodyCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E398F4B2EE93A9400964A2B /* RequestBodyCreator.swift */; };
 		3E7923FE2E12916000609A04 /* ExperienceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7923FD2E12916000609A04 /* ExperienceData.swift */; };
 		3E7924012E12918500609A04 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7924002E12918500609A04 /* SearchData.swift */; };
-		3E8CF1F42DC4E4760013DCAF /* ContextObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CF1F32DC4E4760013DCAF /* ContextObj.swift */; };
 		3E7D2CA12E39194000C2F5C5 /* EventQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7D2CA02E39194000C2F5C5 /* EventQueueManager.swift */; };
+		3E8CF1F42DC4E4760013DCAF /* ContextObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CF1F32DC4E4760013DCAF /* ContextObj.swift */; };
+		3EDF6D152F209164004C9ECE /* Version.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EDF6D142F209164004C9ECE /* Version.plist */; };
 		46746A872AD6D388001C6A8B /* CoordinatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A862AD6D388001C6A8B /* CoordinatesTest.swift */; };
 		46746A892AD83214001C6A8B /* ReferrerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A882AD83214001C6A8B /* ReferrerTest.swift */; };
 		46746A8B2AD98B55001C6A8B /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A8A2AD98B55001C6A8B /* LanguageTest.swift */; };
@@ -154,10 +156,12 @@
 		22E0FAC7210B68D3002E6B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22E0FACC210B68D3002E6B93 /* monetate-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "monetate-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E0FAD3210B68D3002E6B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E398F4B2EE93A9400964A2B /* RequestBodyCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBodyCreator.swift; sourceTree = "<group>"; };
 		3E7923FD2E12916000609A04 /* ExperienceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceData.swift; sourceTree = "<group>"; };
 		3E7924002E12918500609A04 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
-		3E8CF1F32DC4E4760013DCAF /* ContextObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextObj.swift; sourceTree = "<group>"; };
 		3E7D2CA02E39194000C2F5C5 /* EventQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventQueueManager.swift; sourceTree = "<group>"; };
+		3E8CF1F32DC4E4760013DCAF /* ContextObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextObj.swift; sourceTree = "<group>"; };
+		3EDF6D142F209164004C9ECE /* Version.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Version.plist; sourceTree = "<group>"; };
 		46746A862AD6D388001C6A8B /* CoordinatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesTest.swift; sourceTree = "<group>"; };
 		46746A882AD83214001C6A8B /* ReferrerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferrerTest.swift; sourceTree = "<group>"; };
 		46746A8A2AD98B55001C6A8B /* LanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
@@ -189,11 +193,11 @@
 			children = (
 				1F157C4A26B02FCC000D952B /* core */,
 				1F157C5126B02FCC000D952B /* Log.swift */,
-				1F157C5226B02FCC000D952B /* config */,
 				1F157C5326B02FCC000D952B /* models */,
 				1F157C6C26B02FCC000D952B /* actions */,
 				1F157C6E26B02FCC000D952B /* services */,
 				1F157C7026B02FCC000D952B /* utility */,
+				3EDF6D132F2090B4004C9ECE /* Resources */,
 			);
 			path = monetate;
 			sourceTree = "<group>";
@@ -208,13 +212,6 @@
 				1F157C5026B02FCC000D952B /* Account.swift */,
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		1F157C5226B02FCC000D952B /* config */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = config;
 			sourceTree = "<group>";
 		};
 		1F157C5326B02FCC000D952B /* models */ = {
@@ -267,6 +264,7 @@
 		1F157C6E26B02FCC000D952B /* services */ = {
 			isa = PBXGroup;
 			children = (
+				3E398F4B2EE93A9400964A2B /* RequestBodyCreator.swift */,
 				1F157C6F26B02FCC000D952B /* APIService.swift */,
 			);
 			path = services;
@@ -354,9 +352,9 @@
 		22E0FAB9210B68D3002E6B93 = {
 			isa = PBXGroup;
 			children = (
-				1F157C4926B02FCC000D952B /* monetate */,
+				3EDF6D112F208B83004C9ECE /* Sources */,
+				3EDF6D122F208C1A004C9ECE /* Tests */,
 				22D0F4C521122BB900FDE636 /* config */,
-				22E0FAD0210B68D3002E6B93 /* monetate-ios-sdkTests */,
 				22E0FAC4210B68D3002E6B93 /* Products */,
 				1D2D2A67255159720041D0DD /* monetate-ios-sdkTests-Bridging-Header.h */,
 			);
@@ -371,7 +369,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		22E0FAD0210B68D3002E6B93 /* monetate-ios-sdkTests */ = {
+		22E0FAD0210B68D3002E6B93 /* monetateTests */ = {
 			isa = PBXGroup;
 			children = (
 				221195382134878A00B88E49 /* Actions */,
@@ -382,7 +380,31 @@
 				22E0FAD3210B68D3002E6B93 /* Info.plist */,
 				2211950A212B5E2E00B88E49 /* support */,
 			);
-			path = "monetate-ios-sdkTests";
+			path = monetateTests;
+			sourceTree = "<group>";
+		};
+		3EDF6D112F208B83004C9ECE /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1F157C4926B02FCC000D952B /* monetate */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3EDF6D122F208C1A004C9ECE /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				22E0FAD0210B68D3002E6B93 /* monetateTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		3EDF6D132F2090B4004C9ECE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3EDF6D142F209164004C9ECE /* Version.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDF6D152F209164004C9ECE /* Version.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +549,7 @@
 				1F157C8D26B02FCC000D952B /* DecisionRequest.swift in Sources */,
 				1F157C9226B02FCC000D952B /* ProductDetailView.swift in Sources */,
 				1F157C8F26B02FCC000D952B /* CustomVariables.swift in Sources */,
+				3E398F4C2EE93A9400964A2B /* RequestBodyCreator.swift in Sources */,
 				1F157CA926B02FCC000D952B /* MError.swift in Sources */,
 				1F157CA526B02FCC000D952B /* Utility.swift in Sources */,
 				1F157C9626B02FCC000D952B /* IPAddress.swift in Sources */,
