@@ -487,8 +487,8 @@ extension Personalization {
     public func getActions (context:ContextObj,
                             arrActionTypes:[String],
                             includeReporting: Bool
-    ) -> Future<[[String: Any]], Error> {
-        let promise = Promise <[[String: Any]], Error>()
+    ) -> Future<[[String: JSONValue]], Error> {
+        let promise = Promise <[[String: JSONValue]], Error>()
         addEventData(context: context)
         let requestId = generateRequestId()
         getActionsData(requestId: requestId, includeReporting: includeReporting, arrActionTypes: arrActionTypes)
@@ -571,7 +571,7 @@ extension Personalization {
      Used to fetch Actions data from API response
      - Parameter response: API response obtained from engine API
      */
-    private func filterActionsData(response: APIResponse) throws -> [[String: Any]] {
+    private func filterActionsData(response: APIResponse) throws -> [[String: JSONValue]] {
         
         // Convert response.data → Dictionary
         let root: [String: Any]
@@ -592,7 +592,9 @@ extension Personalization {
            let responses = data["responses"] as? [[String: Any]] {
             for responseItem in responses {
                 if let actions = responseItem["actions"] as? [[String: Any]], !actions.isEmpty {
-                    return actions
+                    return actions.map { dict in
+                        dict.mapValues { JSONValue($0) }
+                    }
                 }
             }
         }
