@@ -70,10 +70,10 @@ public class Personalization {
             Log.debug("callMonetateAPIOnContextSwitched Success - \(self?.eventQueueManager.getQueueSnapshot().keys.count ?? 0)")
             self?.eventQueueManager.setEvent(event, for: context)
             self?.timer?.resume()
-        }, failure: { (er) in
+        }, failure: { [weak self] (er) in
             Log.debug("callMonetateAPIOnContextSwitched Failure")
-            
-            self.timer?.resume()
+
+            self?.timer?.resume()
         })
     }
     
@@ -307,7 +307,7 @@ public class Personalization {
         var body:[String:Any] = [
             "channel":account.getChannel(),
             "sdkVersion": account.getSDKVersion(),
-            "events": Utility.createEventBody(queue: eventQueueManager.getQueueSnapshot())]
+            "events": eventQueueManager.dequeueEncodedEvents()]
         
         if let val = self.user.deviceId { body["deviceId"] = val } else if let val = self.user.monetateId { body["monetateId"] = val }
         if let val = self.user.customerId { body["customerId"] = val }
