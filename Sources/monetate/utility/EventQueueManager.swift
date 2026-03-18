@@ -41,6 +41,14 @@ final class EventQueueManager {
             completion?()
         }
     }
+
+    // Encode the current queue to JSON while holding the serial lock, preventing
+    // concurrent mutations from racing with JSONEncoder reads on class-typed models.
+    func dequeueEncodedEvents() -> [[String: Any]] {
+        return serialSyncQueue.sync {
+            Utility.createEventBody(queue: queue)
+        }
+    }
 }
 
 
