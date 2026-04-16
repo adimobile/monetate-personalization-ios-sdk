@@ -8,19 +8,18 @@
 
 import Foundation
 
-public class ProductThumbnailView: Codable, MEvent {
-    
+public struct ProductThumbnailView: Codable, MEvent {
+
     /** A value which identifies the type of event. */
-    public let eventType:String
+    public let eventType: String
     /** The list of products viewed on a product detail page. */
     public var products: Set<String>
-    
+
     public init(products: Set<String>) {
         eventType = "monetate:context:ProductThumbnailView"
         self.products = products
-       // try! checkProducs()
     }
-    
+
     func checkProducs () throws {
         if (!products.isEmpty) {
             for strProductId in products {

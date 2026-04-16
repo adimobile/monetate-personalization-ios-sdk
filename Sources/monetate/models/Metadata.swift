@@ -20,8 +20,23 @@ public func ==<K, L: Hashable, R: Hashable>(lhs: [K: L], rhs: [K: R] ) -> Bool {
     (lhs as NSDictionary).isEqual(to: rhs)
 }
 
-public class Metadata: Codable, Context {
-    
+public struct Metadata: Codable, Context {
+
+    /** A value which identifies the type of event. */
+    public var eventType: String = "monetate:context:Metadata"
+    /** Arbitrary additional custom data to be sent for action. */
+    public var metadata: JSONValue
+
+    public init(metadata: JSONValue) {
+        self.metadata = metadata
+    }
+
+    public init(language: String) {
+        self.metadata = [
+            "language": .string(language)
+        ]
+    }
+
     public func isContextSwitched(ctx: Context) -> Bool {
         if let val = ctx as? Metadata, let dic1 = self.metadata.dictionary, let dic2 = val.metadata.dictionary {
             for (key, val) in dic2 {
@@ -32,7 +47,7 @@ public class Metadata: Codable, Context {
         }
         return false
     }
-    
+
     public static func merge (first: JSONValue, second: JSONValue) -> JSONValue {
         if var dic1 = first.dictionary, let dic2 = second.dictionary {
             dic1.merge(dict: dic2)
@@ -40,23 +55,6 @@ public class Metadata: Codable, Context {
             return JSONValue(dictionaryLiteral: p)
         }
         return first
-    }
-    
-    
-    
-    /** A value which identifies the type of event. */
-    public var eventType: String = "monetate:context:Metadata"
-    /** Arbitrary additional custom data to be sent for action. */
-    public var metadata: JSONValue
-    
-    public init(metadata: JSONValue) {
-        self.metadata = metadata
-    }
-    
-    public init(language: String) {
-        self.metadata = [
-            "language": .string(language)
-        ]
     }
 }
 
