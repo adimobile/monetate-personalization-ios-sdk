@@ -9,27 +9,27 @@
 import Foundation
 
 
-public class CustomVariables: Codable, Context {
-    
+public struct CustomVariables: Codable, Context {
+
     /** A value which identifies the type of event. */
     public var eventType: String = "monetate:context:CustomVariables"
     /** An array of custom variables. */
     public var customVariables: [CustomVariablesModel]
-    
+
     public init?(customVariables: [CustomVariablesModel]?) {
         guard let customVariables = customVariables else {
             return nil
         }
         self.customVariables = customVariables
     }
-    
+
     public func isContextSwitched(ctx: Context) -> Bool {
         if let val = ctx as? CustomVariables, isContextSwitched(val: val) {
             return true
         }
         return false
     }
-    
+
     static func merge (first: [CustomVariablesModel], second: [CustomVariablesModel]) -> [CustomVariablesModel] {
         let merged = Array(Dictionary([first, second].joined().map { ($0.variable, $0)}, uniquingKeysWith: { $1 }).values)
         return merged

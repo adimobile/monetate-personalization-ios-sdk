@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class ProductDetailView: Codable, MEvent {
-    
+public struct ProductDetailView: Codable, MEvent {
+
     /** A value which identifies the type of event. */
     public let eventType: String
     /** The list of products and product specific details being viewed. */
     public var products: [Product]?
-    
+
     public init?(products: [Product]?) {
         guard let products = products else {
             return nil
@@ -22,7 +22,7 @@ public class ProductDetailView: Codable, MEvent {
         eventType = "monetate:context:ProductDetailView"
         self.products = products
     }
-    
+
     static func merge (first: [Product], second: [Product]) -> [Product] {
         let merged = Array(Dictionary([first, second].joined().map { ($0.productId, $0)}, uniquingKeysWith: { $1 }).values)
         return merged

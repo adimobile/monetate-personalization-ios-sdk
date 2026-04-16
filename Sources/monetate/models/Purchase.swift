@@ -10,15 +10,15 @@ import Foundation
 
 /** Used to communicate a purchase. Must include line items.  */
 
-public class Purchase: Codable, MEvent {
-    
+public struct Purchase: Codable, MEvent {
+
     /** A value which identifies the type of event. */
     public let eventType: String
     /** Unique identifier for the purchase. */
     public var purchaseId: String
     /** The purchase lines defining the contents of the purchase. */
     public var purchaseLines: [PurchaseLine]?
-    
+
     public init?(purchaseId: String?, purchaseLines: [PurchaseLine]?) {
         guard let purchaseId = purchaseId, let purchaseLines = purchaseLines else {
             return nil
@@ -27,7 +27,7 @@ public class Purchase: Codable, MEvent {
         self.purchaseId = purchaseId
         self.purchaseLines = purchaseLines
     }
-    
+
     static func merge (first: [PurchaseLine], second: [PurchaseLine]) -> [PurchaseLine] {
         let merged = Array(Dictionary([first, second].joined().map { ($0.pid, $0)}, uniquingKeysWith: { $1 }).values)
         return merged
