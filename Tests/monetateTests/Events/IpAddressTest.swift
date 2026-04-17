@@ -20,16 +20,16 @@ class IpAddressTest: XCTestCase {
     }
     
     func testIsFlushNotRequired () {
-        let val1 = IPAddress(ipAddress: Device.getIPAddress()!)
-        let val2 = IPAddress(ipAddress: Device.getAddress(for: NetworkType.wifi)!)
+        let val1 = IPAddress(ipAddress: Device.getIPAddress()!)!
+        let val2 = IPAddress(ipAddress: Device.getAddress(for: NetworkType.wifi)!)!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == false, "Flush was not required")
     }
     
     func testIsFlushRequired () {
-        let val1 = IPAddress(ipAddress: IPAddressUtil.getWiFiAddress()!)
-        let val2 = IPAddress(ipAddress: "192.168.0.9")
+        let val1 = IPAddress(ipAddress: IPAddressUtil.getWiFiAddress()!)!
+        let val2 = IPAddress(ipAddress: "192.168.0.9")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == true, "Flush was required")

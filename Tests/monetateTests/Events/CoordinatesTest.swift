@@ -20,16 +20,16 @@ final class CoordinatesTest: XCTestCase {
     }
     
     func testIsFlushNotRequired () {
-        let val1 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")
-        let val2 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")
+        let val1 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")!
+        let val2 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == false, "Flush was not required")
     }
     
     func testIsFlushRequired () {
-        let val1 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")
-        let val2 = Coordinates(latitude: "30.2637508", longitude: "97.8076735")
+        let val1 = Coordinates(latitude: "30.2637508", longitude: "-97.8076735")!
+        let val2 = Coordinates(latitude: "30.2637508", longitude: "97.8076735")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == true, "Flush was required")
