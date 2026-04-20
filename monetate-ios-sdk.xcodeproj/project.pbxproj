@@ -75,6 +75,7 @@
 		46746A872AD6D388001C6A8B /* CoordinatesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A862AD6D388001C6A8B /* CoordinatesTest.swift */; };
 		46746A892AD83214001C6A8B /* ReferrerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A882AD83214001C6A8B /* ReferrerTest.swift */; };
 		46746A8B2AD98B55001C6A8B /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46746A8A2AD98B55001C6A8B /* LanguageTest.swift */; };
+		AA1B2C3D4E5F6A7B8C9D0E1F /* DataRaceStressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1B2C3D4E5F6A7B8C9D0E10 /* DataRaceStressTests.swift */; };
 		DFBB54B12872E6EB0005DBDF /* RecClicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB54B02872E6EB0005DBDF /* RecClicks.swift */; };
 		DFBB54B32872E6FF0005DBDF /* RecImpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB54B22872E6FF0005DBDF /* RecImpressions.swift */; };
 /* End PBXBuildFile section */
@@ -165,6 +166,7 @@
 		46746A862AD6D388001C6A8B /* CoordinatesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesTest.swift; sourceTree = "<group>"; };
 		46746A882AD83214001C6A8B /* ReferrerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferrerTest.swift; sourceTree = "<group>"; };
 		46746A8A2AD98B55001C6A8B /* LanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
+		AA1B2C3D4E5F6A7B8C9D0E10 /* DataRaceStressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRaceStressTests.swift; sourceTree = "<group>"; };
 		DFBB54B02872E6EB0005DBDF /* RecClicks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecClicks.swift; sourceTree = "<group>"; };
 		DFBB54B22872E6FF0005DBDF /* RecImpressions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecImpressions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -377,6 +379,7 @@
 				1D2D2A7B2551704A0041D0DD /* TimerQueueTests.swift */,
 				1D2F4366256BC4930032FFB3 /* ReportTests.swift */,
 				1D6F8840256E8B1E00A5CE6A /* GetActionTests.swift */,
+				AA1B2C3D4E5F6A7B8C9D0E10 /* DataRaceStressTests.swift */,
 				22E0FAD3210B68D3002E6B93 /* Info.plist */,
 				2211950A212B5E2E00B88E49 /* support */,
 			);
@@ -595,6 +598,7 @@
 				1D2D2A722551642E0041D0DD /* MetadataEventTest.swift in Sources */,
 				1DF4DB49256D8C790047E014 /* ReportTests.swift in Sources */,
 				1D6F8841256E8B1E00A5CE6A /* GetActionTests.swift in Sources */,
+				AA1B2C3D4E5F6A7B8C9D0E1F /* DataRaceStressTests.swift in Sources */,
 				1D2D2A78255165110041D0DD /* IpAddressTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,7 +717,7 @@
 					"TEST=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "monetate-ios-sdkTests/Info.plist";
+				INFOPLIST_FILE = "Tests/monetateTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -912,7 +916,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "monetate-ios-sdkTests/Info.plist";
+				INFOPLIST_FILE = "Tests/monetateTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -933,7 +937,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "monetate-ios-sdkTests/Info.plist";
+				INFOPLIST_FILE = "Tests/monetateTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

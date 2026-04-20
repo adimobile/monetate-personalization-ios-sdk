@@ -22,28 +22,40 @@ class PurchaseEventTest: XCTestCase {
     }
     
     func testMergeCase1 () {
-        let val1 = Purchase.init(account: "Flipkart", domain: "com.whatsapp", instance: "instance-12", purchaseId: "ID-21313", purchaseLines: [
-            PurchaseLine(sku: "SKU-111", pid: "PID-111", quantity: 1, currency: "USD", value: "111"),
-            PurchaseLine(sku: "SKU-222", pid: "PID-222", quantity: 2, currency: "USD", value: "222")
-        ])
-        let val2 = Purchase.init(account: "Flipkart", domain: "com.whatsapp", instance: "instance-12", purchaseId: "ID-21313", purchaseLines: [
-            PurchaseLine(sku: "SKU-333", pid: "PID-333", quantity: 3, currency: "USD", value: "333"),
-            PurchaseLine(sku: "SKU-444", pid: "PID-444", quantity: 4, currency: "USD", value: "444")
-        ])
+        let val1 = Purchase.init(
+            purchaseId: "ID-21313",
+            purchaseLines: [
+                PurchaseLine(sku: "SKU-111", pid: "PID-111", quantity: 1, currency: "USD", value: "111"),
+                PurchaseLine(sku: "SKU-222", pid: "PID-222", quantity: 2, currency: "USD", value: "222")
+            ]
+        )!
+        let val2 = Purchase.init(
+            purchaseId: "ID-21313",
+            purchaseLines: [
+                PurchaseLine(sku: "SKU-333", pid: "PID-333", quantity: 3, currency: "USD", value: "333"),
+                PurchaseLine(sku: "SKU-444", pid: "PID-444", quantity: 4, currency: "USD", value: "444")
+            ]
+        )!
         
         let array = Purchase.merge(first: val1.purchaseLines!, second: val2.purchaseLines!)
         XCTAssertTrue(array.count == 4, "Merging is failed, purchaseLines count should be 4")
     }
     
     func testMergeCase2 () {
-        let val1 = Purchase.init(account: "Flipkart", domain: "com.whatsapp", instance: "instance-12", purchaseId: "ID-21313", purchaseLines: [
-            PurchaseLine(sku: "SKU-111", pid: "PID-111", quantity: 1, currency: "USD", value: "111"),
-            PurchaseLine(sku: "SKU-222", pid: "PID-222", quantity: 2, currency: "USD", value: "222")
-        ])
-        let val2 = Purchase.init(account: "Flipkart", domain: "com.whatsapp", instance: "instance-12", purchaseId: "ID-21313", purchaseLines: [
-            PurchaseLine(sku: "SKU-333", pid: "PID-111", quantity: 3, currency: "USD", value: "333"),
-            PurchaseLine(sku: "SKU-444", pid: "PID-444", quantity: 4, currency: "USD", value: "444")
-        ])
+        let val1 = Purchase.init(
+            purchaseId: "ID-21313",
+            purchaseLines: [
+                PurchaseLine(sku: "SKU-111", pid: "PID-111", quantity: 1, currency: "USD", value: "111"),
+                PurchaseLine(sku: "SKU-222", pid: "PID-222", quantity: 2, currency: "USD", value: "222")
+            ]
+        )!
+        let val2 = Purchase.init(
+            purchaseId: "ID-21313",
+            purchaseLines: [
+                PurchaseLine(sku: "SKU-333", pid: "PID-111", quantity: 3, currency: "USD", value: "333"),
+                PurchaseLine(sku: "SKU-444", pid: "PID-444", quantity: 4, currency: "USD", value: "444")
+            ]
+        )!
         
         let array = Purchase.merge(first: val1.purchaseLines!, second: val2.purchaseLines!)
         XCTAssertTrue(array.count == 3, "Merging is failed, purchaseLines count should be 3")

@@ -20,16 +20,16 @@ class UserAgentTest: XCTestCase {
     }
     
     func testIsContextSwitched_NotRequired () {
-        let val1 = UserAgent(userAgent: UAString())
-        let val2 = UserAgent(userAgent: UAString())
+        let val1 = UserAgent(userAgent: UAString())!
+        let val2 = UserAgent(userAgent: UAString())!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == false, "Flush was not required")
     }
     
     func testIsContextSwitched_Required () {
-        let val1 = UserAgent(userAgent: "Firefox-1111")
-        let val2 = UserAgent(userAgent: "Firefox-2222")
+        let val1 = UserAgent(userAgent: "Firefox-1111")!
+        let val2 = UserAgent(userAgent: "Firefox-2222")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == true, "Flush was required")

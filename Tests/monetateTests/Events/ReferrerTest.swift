@@ -20,16 +20,16 @@ final class ReferrerTest: XCTestCase {
     }
     
     func testIsFlushNotRequired () {
-        let val1 = Referrer(referrer: "www.amazon.in")
-        let val2 = Referrer(referrer: "www.amazon.in")
+        let val1 = Referrer(referrer: "www.amazon.in")!
+        let val2 = Referrer(referrer: "www.amazon.in")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == false, "Flush was not required")
     }
     
     func testIsFlushRequired () {
-        let val1 = Referrer(referrer: "www.amazon.in")
-        let val2 = Referrer(referrer: "www.flipkart.com")
+        let val1 = Referrer(referrer: "www.amazon.in")!
+        let val2 = Referrer(referrer: "www.flipkart.com")!
         
         let result = val1.isContextSwitched(ctx: val2)
         XCTAssertTrue(result == true, "Flush was required")
