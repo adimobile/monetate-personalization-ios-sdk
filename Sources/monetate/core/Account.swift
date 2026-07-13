@@ -13,16 +13,23 @@ public struct Account:Codable {
     private var domain: String?
     private var name: String?
     private var shortname: String?
+    private var engineHost: MonetateHostDomain
     
     /**
      Contains standard domain name instance and shortname
      */
     
-    public init(instance: String, domain:String, name:String, shortname:String) {
+    public init(instance: String, domain:String, name:String, shortname:String, engineHostName:String? = nil) {
         self.instance = instance
         self.domain = domain
         self.name = name
         self.shortname = shortname
+        if let host = engineHostName?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !host.isEmpty {
+            self.engineHost = .custom(host)
+        } else {
+            self.engineHost = .engine
+        }
         
         do {
             try checkAccountInfo()
@@ -49,17 +56,8 @@ public struct Account:Codable {
 
     
     func getSDKVersion() -> String {
-        #if SWIFT_PACKAGE
-        guard let url = Bundle.module.url(forResource: "Version", withExtension: "plist"),
-              let dict = NSDictionary(contentsOf: url),
-              let version = dict["CFBundleShortVersionString"] as? String else {
-            return "Unknown"
-        }
-        return version
-        #else
         return Bundle(for: Personalization.self)
             .infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
-        #endif
     }
     
     func getChannel () -> String {
@@ -72,6 +70,10 @@ public struct Account:Codable {
     
     func getDomain () -> String {
         return self.domain ?? ""
+    }
+    
+    func getEngineHost() -> MonetateHostDomain {
+        return self.engineHost
     }
 }
 

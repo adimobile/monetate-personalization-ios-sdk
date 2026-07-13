@@ -12,10 +12,10 @@ public class FileActions {
   
     public func getFilePath() -> URL {
         let fileName = "Temp"
-        let documentDir = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        let fileURL = documentDir.appendingPathComponent(fileName).appendingPathExtension("txt")
+        let documentDir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let fileURL = documentDir?.appendingPathComponent(fileName).appendingPathExtension("txt")
         
-        return fileURL
+        return fileURL ?? FileManager.default.temporaryDirectory.appendingPathComponent(fileName).appendingPathExtension("txt")
     }
     
     public func getPath () -> String {

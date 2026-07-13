@@ -135,6 +135,7 @@ public extension UIDevice {
             //Simulator
             "i386"      : .simulator,
             "x86_64"    : .simulator,
+            "arm64"     : .simulator,
             
             //iPod
             "iPod1,1"   : .iPod1,
@@ -268,16 +269,19 @@ public extension UIDevice {
             "AppleTV6,2" : .AppleTV_4K
         ]
         
-        if let model = modelMap[String.init(validatingUTF8: modelCode!)!] {
-            if model == .simulator {
-                if let simModelCode = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
-                    if let simModel = modelMap[String.init(validatingUTF8: simModelCode)!] {
-                        return simModel
-                    }
-                }
-            }
-            return model
+        guard
+            let modelCode = modelCode,
+            let model = modelMap[modelCode]
+        else {
+            return .unrecognized
         }
-        return Model.unrecognized
+        
+        if model == .simulator,
+           let simModelCode = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"],
+           let simModel = modelMap[simModelCode] {
+            return simModel
+        }
+        
+        return model
     }
 }

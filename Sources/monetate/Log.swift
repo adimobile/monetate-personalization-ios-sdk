@@ -8,8 +8,13 @@
 
 
 import Foundation
+import os.log
 
 enum Log {
+    private static let sdkLog = OSLog(
+        subsystem: "com.monetate.personalization",
+        category: "SDK"
+    )
     enum LogLevel {
         case info
         case warning
@@ -61,9 +66,8 @@ enum Log {
             fullString += " ➜ \(context.description)"
         }
         
-        #if DEBUG
-        print(fullString)
-        #endif
+        os_log("%{public}@", log: sdkLog , type: .debug, fullString)
+
     }
 
 }
