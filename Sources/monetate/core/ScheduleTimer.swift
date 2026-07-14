@@ -35,7 +35,8 @@ public class ScheduleTimer {
         state = .resumed
         timer.schedule(deadline: .now() + self.timeInterval, repeating: self.timeInterval)
         timer.resume()
-        Log.debug("Timer Resumed with duration \(self.timeInterval) seconds -  \(Date().toString("E dd MM YY HH:mm:ss"))", shouldLogContext: false)
+        let timestamp = Date().toString("E dd MM yyyy HH:mm:ss")
+        Log.debug("Timer resumed with duration \(self.timeInterval) seconds - \(timestamp)", shouldLogContext: false)
     }
     
     public func suspend() {
@@ -44,8 +45,17 @@ public class ScheduleTimer {
         }
         state = .suspended
         timer.suspend()
-        Log.debug("Timer suspended -  \(Date().toString("E dd MM YY HH:mm:ss"))", shouldLogContext: false)
-        
+        let timestamp = Date().toString("E dd MM yyyy HH:mm:ss")
+        Log.debug("Timer suspended - \(timestamp)", shouldLogContext: false)
+    }
+    
+    deinit {
+        timer.setEventHandler {}
+    
+        if state == .suspended {
+            timer.resume()
+        }
+        timer.cancel()
     }
 }
 

@@ -51,7 +51,7 @@ public struct Metadata: Codable, Context {
     public static func merge (first: JSONValue, second: JSONValue) -> JSONValue {
         if var dic1 = first.dictionary, let dic2 = second.dictionary {
             dic1.merge(dict: dic2)
-            let p = dic1.map{($0.key, JSONValue.init(stringLiteral: $0.value as! String))}
+            let p = dic1.map{($0.key, JSONValue.init($0.value))}
             return JSONValue(dictionaryLiteral: p)
         }
         return first

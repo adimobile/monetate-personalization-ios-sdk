@@ -17,7 +17,7 @@ final class RequestBodyCreator {
     ///   - searchToken: Optional token from the Monetate engine API.
     /// - Returns: A configured `SearchRequest` instance.
     ///
-    func createRequestBody(
+    func createSiteSearchRequestBody(
         searchConfig: SiteSearchConfigParams,
         searchToken: String?
     ) -> SearchRequest? {

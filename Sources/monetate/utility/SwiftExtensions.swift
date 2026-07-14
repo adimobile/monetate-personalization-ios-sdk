@@ -94,7 +94,7 @@ public extension Dictionary {
 }
 
 extension Dictionary {
-    var toString1: String! {
+    var toString1: String? {
         guard let theJSONData = try? JSONSerialization.data(withJSONObject: self,
                                                             options: [.prettyPrinted]) else { return "" }
         
