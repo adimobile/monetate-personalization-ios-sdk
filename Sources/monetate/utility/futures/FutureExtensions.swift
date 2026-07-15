@@ -186,13 +186,13 @@ extension Future {
     /// - note: This methods waits for the completion on the private dispatch
     /// queue so it's safe to call it from any thread. But avoid blocking the
     /// main thread!
-    public func wait() -> Result {
+    public func wait() -> Result? {
         let semaphore = DispatchSemaphore(value: 0)
         observe(on: waitQueue).on(completion: {
             semaphore.signal()
         })
         semaphore.wait()
-        return result! // Must have result at this point
+        return result // Must have result at this point
     }
 }
 

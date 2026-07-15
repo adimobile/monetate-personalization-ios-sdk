@@ -19,9 +19,12 @@ public class APIResponse {
     init (success: Bool, res: URLResponse?, status: Int?, data: Data?, error: Error? = nil, requestId:String?) {
         self.isSuccess = success
         self.res = res
-        self.data = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions())
         self.status = status
         self.error = error
         self.requestId = requestId
+        self.data = {
+            guard let data = data, !data.isEmpty else { return nil }
+            return try? JSONSerialization.jsonObject(with: data, options: [])
+        }()
     }
 }

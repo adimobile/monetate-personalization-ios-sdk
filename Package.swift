@@ -17,11 +17,14 @@ let package = Package(
     targets: [
         .target(
             name: "Monetate",
-            path: "Sources/monetate",
-            resources: [.process("Resources/Version.plist")]
-        )
-    ],
-    swiftLanguageModes: [
-        .version("5")
+            dependencies: [],
+            path: "Sources/monetate"
+        ),
+        .testTarget(
+                name: "MonetateTests",
+                dependencies: ["Monetate"],
+                path: "Tests/monetateTests",
+                resources: [.process("support")]
+            )
     ]
 )
